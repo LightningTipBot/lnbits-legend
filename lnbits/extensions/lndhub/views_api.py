@@ -22,7 +22,8 @@ from .utils import decoded_as_lndhub, to_buffer
 
 @lndhub_ext.get("/ext/getinfo")
 async def lndhub_getinfo():
-    raise HTTPException(status_code=HTTPStatus.UNAUTHORIZED, detail="bad auth")
+    # raise HTTPException(status_code=HTTPStatus.UNAUTHORIZED, detail="bad auth")
+    return {"alias": "LightningTipBot"}
 
 
 class AuthData(BaseModel):
