@@ -62,10 +62,10 @@ async def api_wallet(wallet: WalletTypeInfo = Depends(get_key_type)):
         return {
             "id": wallet.wallet.id,
             "name": wallet.wallet.name,
-            "balance": wallet.wallet.balance_msat,
+            "balance": int(wallet.wallet.balance_msat),
         }
     else:
-        return {"name": wallet.wallet.name, "balance": wallet.wallet.balance_msat}
+        return {"name": wallet.wallet.name, "balance": int(wallet.wallet.balance_msat)}
 
 
 @core_app.put("/api/v1/wallet/balance/{amount}")
@@ -105,7 +105,7 @@ async def api_update_wallet(
     return {
         "id": wallet.wallet.id,
         "name": wallet.wallet.name,
-        "balance": wallet.wallet.balance_msat,
+        "balance": int(wallet.wallet.balance_msat),
     }
 
 

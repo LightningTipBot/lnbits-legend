@@ -95,7 +95,7 @@ class Payment(BaseModel):
             amount=row["amount"],
             fee=row["fee"],
             memo=row["memo"],
-            time=row["time"],
+            time=int(row["time"]),
             wallet_id=row["wallet"],
             webhook=row["webhook"],
             webhook_status=row["webhook_status"],
