@@ -58,6 +58,10 @@ from ..tasks import api_invoice_listeners
 
 @core_app.get("/api/v1/wallet")
 async def api_wallet(wallet: WalletTypeInfo = Depends(get_key_type)):
+    if wallet.wallet is None: 
+        raise HTTPException(
+            status_code=HTTPStatus.BAD_REQUEST, detail="Wallet not found"
+        )
     if wallet.wallet_type == 0:
         return {
             "id": wallet.wallet.id,
