@@ -107,7 +107,7 @@ async def api_usermanager_wallet_transactions(
 
 @usermanager_ext.get("/api/v1/wallets/{user_id}")
 async def api_usermanager_users_wallets(
-    user_id, wallet: WalletTypeInfo = Depends(require_admin_key)
+    user_id, wallet: WalletTypeInfo = Depends(get_key_type)
 ):
     return [
         s_wallet.dict() for s_wallet in await get_usermanager_users_wallets(user_id)
